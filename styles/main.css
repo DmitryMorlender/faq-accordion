@@ -1,0 +1,257 @@
+:root {
+  /* #### Text */
+  --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+
+  /* #### Gradient */
+
+  /* Background gradient: */
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+
+  /* ### Neutral */
+
+  /* #### Text */
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+
+  /* #### Dividers */
+  --light-grayish-blue: hsl(240, 5%, 91%);
+
+  /* ## Typography */
+  --font-size: 12px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: var(--font-size);
+}
+
+label {
+  cursor: pointer;
+}
+
+body {
+  background: linear-gradient(var(--soft-violet), var(--soft-blue));
+}
+
+.faq-section {
+  height: 100%;
+}
+
+.faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.faq {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 30px 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 325px;
+}
+
+.faq .images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  margin: 0 20px;
+}
+
+.faq .content {
+  flex: 1;
+}
+
+.faq .background-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 100%;
+}
+
+.faq .top-image {
+  position: absolute;
+  top: -110px;
+  left: 50%;
+  transform: translate(-50%);
+  align-self: center;
+  max-width: 100%;
+}
+
+.faq .faq__title {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 100px;
+}
+
+.faq .faq__item__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq .faq__questions .faq__item__question__question {
+  color: var(--very-dark-grayish-blue);
+  margin-right: 10px;
+}
+
+input[id^="question_checkbox"] {
+  display: none;
+}
+
+input[id^="question_checkbox"]:checked + .faq__item__question img {
+  transform: rotateZ(180deg);
+}
+
+input[id^="question_checkbox"]:checked
+  + .faq__item__question
+  .faq__item__question__question {
+  font-weight: 700;
+}
+
+input[id^="question_checkbox"]:checked ~ .faq__item__question__answer {
+  max-height: 500px;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq .faq__item__question:focus {
+  background-color: blue;
+}
+
+.faq .faq__item__question__answer {
+  overflow: hidden;
+  max-height: 0;
+  margin-top: 20px;
+  color: var(--dark-grayish-blue);
+  transition: max-height 0.3s ease-out;
+}
+
+.faq .faq__item__question img {
+  width: 10px;
+  height: 7px;
+  transform: rotateZ(0);
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 200px;
+  border-bottom: 1px solid var(--light-grayish-blue);
+  padding: 15px 0;
+}
+
+.faq-container {
+  position: relative;
+}
+
+.faq::before {
+  content: none;
+}
+
+@media (min-width: 1440px) {
+  .faq::before {
+    content: url("../images/illustration-box-desktop.svg");
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: -90px;
+    z-index: 3;
+  }
+
+  .faq .faq__title {
+    text-align: start;
+    font-size: 30px;
+    margin-top: 100px;
+  }
+
+  .faq {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 30px 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 920px;
+  }
+
+  .faq_inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .faq_inner .content {
+    flex: 0 1 360px;
+    margin: 0 30px;
+  }
+
+  .images {
+    position: initial;
+  }
+
+  .faq .background-image {
+    position: absolute;
+    align-self: center;
+    max-width: 100%;
+    left: -5%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  }
+
+  .faq .top-image {
+    position: absolute;
+    align-self: center;
+    max-width: 100%;
+    left: -5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.attribution {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 11px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
